@@ -36,25 +36,25 @@ app.config['MYSQL_DATABASE_DB'] = 'bucketlist'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
-conn = mysql.connect()
+# conn = mysql.connect()
+#
+# cursor = conn.cursor()
+#
+# from werkzeug.security import generate_password_hash, check_password_hash
+#
+# # _hashed_password = generate_password_hash(_password)
+# #
+# # cursor.callproc('sp_createUser',(_name,_email,_hashed_password))
+#
+# data = cursor.fetchall()
 
-cursor = conn.cursor()
-
-from werkzeug.security import generate_password_hash, check_password_hash
-
-_hashed_password = generate_password_hash(_password)
-
-cursor.callproc('sp_createUser',(_name,_email,_hashed_password))
-
-data = cursor.fetchall()
-
-if len(data) is 0:
-    conn.commit()
-    return json.dumps({'message': 'User created successfully !'})
-else:
-    return json.dumps({'error': str(data[0])})
-
-{"message": "User created successfully !"}
+# if len(data) is 0:
+#     conn.commit()
+#     return json.dumps({'message': 'User created successfully !'})
+# else:
+#     return json.dumps({'error': str(data[0])})
+#
+# {"message": "User created successfully !"}
 
 
 
